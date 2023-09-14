@@ -1,5 +1,4 @@
 //merge sort
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -154,3 +153,4 @@ enter element 3:3
 enter element 4:2
 enter element 5:1
 before sorting:5,4,3,2,1,after sorting*/
+
