@@ -81,10 +81,17 @@ enter element 2:4
 enter element 3:3
 enter element 4:2
 enter element 5:1
-before sorting:5,4,3,2,1,after sorting1,2,3,4,5,
+before sorting:5,4,3,2,1,after sorting1,2,3,4,5
+output2:
+enter the size of the array5
+enter element 1:45
+enter element 2:12
+enter element 3:78
+enter element 4:90
+enter element 5:15
+before sorting:45,12,78,90,15,after sorting12,15,45,78,90,
+
 */
-
-
 //quick sort
 #include <stdio.h>
 #include <stdlib.h>
