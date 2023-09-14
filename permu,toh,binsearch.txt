@@ -1,0 +1,120 @@
+//towers of hanoi
+#include <stdio.h>
+void toh(char a,char b,char c,int n)
+{  if(n>=1)
+ {   toh(a,c,b,n-1);
+    printf("\nmove disk from %c to disk %c",a,b);
+    toh(c,b,a,n-1);
+ }
+}
+int main()
+{
+    int n;
+    char A,B,C;
+    printf("enter number of disks");
+    scanf("%d",&n);
+    toh('A','B','C',n);
+    return 0;
+}
+output:
+enter number of disks3
+move disk from A to disk B
+move disk from A to disk C
+move disk from B to disk C
+move disk from A to disk B
+move disk from C to disk A
+move disk from C to disk B
+move disk from A to disk B
+
+//permutations a string applicable for duplicates also
+#include <stdio.h>
+#include <string.h>
+
+void swap(char *x, char *y)
+{
+    char temp;
+    temp = *x;
+    *x = *y;
+    *y = temp;
+}
+
+void permute(char *a, int k, int r)
+{
+   int i;
+   if (k == r)
+     printf("%s\n", a);
+   else
+   {
+       for (i = k; i <= r; i++)
+       {
+          swap((a+k), (a+i));
+          permute(a, k+1, r);
+          swap((a+k), (a+i)); 
+       }
+   }
+}
+int main()
+{
+    char str[10];
+    printf("enter the string:");
+    scanf("%s",str);
+    int n = strlen(str);
+    permute(str, 0, n-1);
+    return 0;
+}
+
+output:
+enter the string:ABC
+ABC
+ACB
+BAC
+BCA
+CBA
+CAB
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+//recursive binary search
+int Rbinsearch(int a[],int l,int h,int key)
+{   int mid;
+    if(l<=h)
+    { mid=(l+h)/2;
+      if(a[mid]==key)
+          return mid;
+      else if(a[mid]<key)
+          Rbinsearch(a,mid+1,h,key);
+      else if(a[mid]>key)
+          Rbinsearch(a,l,mid-1,key);
+      else
+          return -1;
+    }
+}
+int main() 
+{   int a[20],n,i,key,value;
+    printf("enter the size of the array:");
+    scanf("%d",&n);
+    for(i=0;i<n;i++)
+    {   printf("enter element in a[%d]",i+1);
+        scanf("%d",&a[i]);
+    }
+    printf("enter the element to search");
+    scanf("%d",&key);
+    value=Rbinsearch(a,0,n-1,key);
+    if(value)
+       printf("entered key present at index:%d",value);
+    else
+       printf("entered key is not in array");
+    return 0;
+}
+
+output:
+enter the size of the array:6
+enter element in a[1]3
+enter element in a[2]6
+enter element in a[3]8
+enter element in a[4]9
+enter element in a[5]10
+1enter element in a[6]12
+enter the element to search6
+entered key present at index:1
