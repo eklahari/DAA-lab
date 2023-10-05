@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int prims(int n,int cost[n][n],int t[n-1][2])
+{
+    int k=1,l=6;
+    mincost=cost[k][l];
+    for(int i=0;i<n;i++)
+    {
+        if(cost[i,k]<cost[i,l])
+            near[i]=k;
+        else:
+           near[i]=l;
+    }
+    near[k]=0;near[l]=0;
+    for(int i=2;i<n-1;i++)
+    {   min=99999
+       for(int j=0;j<n-1;j++)
+       {    if(cost[i,near[i]]<min and near[j]!=0)
+               
+    }
+}
+
+int main()
+{ int i,j,n;
+  //printf("enter number of edges");
+  //scanf("%d",&n);
+  n=6;
+  int a[n][n],t[n-1][2];
+  printf("enter cost adjacency matrix");
+  int cost[i][j] = {
+  {0,28,99999,99999,99999,10,99999},
+  {28,0,16,99999,99999,99999,14},
+  {99999,16,0,12,99999,99999,99999},
+  {99999,99999,12,0,22,99999,18},
+  {99999,99999,99999,22,0,25,24}
+  {10,99999,99999,99999,25,0,99999}
+  {99999,14,99999,18,24,99999,0}};
+  prims(n,cost,t)
+  
