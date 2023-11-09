@@ -1,0 +1,74 @@
+//Dijkstra algorithm
+#include <stdio.h>
+#include <stdlib.h>
+#define MAX 10
+
+void dijkstras(int graph[MAX][MAX], int n, int u, int dist[]) {
+    // u is the source vertex
+    int cost[MAX][MAX];
+    int s[MAX], v;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (graph[i][j] != 0)
+                cost[i][j] = graph[i][j];
+            else
+                cost[i][j] = 9999; // Using 9999 instead of 0 for representing infinity
+        }
+    }
+
+    for (int i = 0; i < n; i++) {
+        s[i] = 0;
+        dist[i] = cost[u][i];
+    }
+    s[u] = 1;
+    int mindistance = 9999;
+    for (int i = 1; i <= n - 1; i++) {
+        mindistance = 9999; // Reset mindistance for each iteration
+        for (int j = 0; j < n; j++) {
+            if (dist[j] < mindistance && !s[j]) {
+                mindistance = dist[j];
+                v = j;
+            }
+        }
+        s[v] = 1;
+        for (int j = 0; j < n; j++) {
+            if (!s[j]) {
+                if (dist[v] + cost[v][j] < dist[j])
+                    dist[j] = dist[v] + cost[v][j];
+            }
+        }
+    }
+    for (int i = 0; i < n; i++) {
+        if (i != u)
+            printf("Shortest distance from %d to %d = %d\n", u, i, dist[i]);
+    }
+}
+
+int main() {
+    int n, u;
+    printf("Enter the number of nodes: ");
+    scanf("%d", &n);
+    printf("Enter the source node: ");
+    scanf("%d", &u);
+    int dist[n];
+    int Graph[MAX][MAX] = {{0, 1, 2, 0, 0, 0, 3},
+                           {0, 0, 0, 4, 0, 0, 0},
+                           {0, 0, 0, 0, 3, 1, 0},
+                           {0, 0, 0, 0, 0, 1, 0},
+                           {0, 0, 0, 0, 0, 2, 0},
+                           {0, 0, 0, 0, 0, 8, 1}};
+
+    dijkstras(Graph, n, u, dist);
+    return 0;
+}
+
+output:
+//here enter no.of nodes-1
+Enter the number of nodes: 6
+//enter node number-1
+Enter the source node: 0
+Shortest distance from 0 to 1 = 1
+Shortest distance from 0 to 2 = 2
+Shortest distance from 0 to 3 = 5
+Shortest distance from 0 to 4 = 5
+Shortest distance from 0 to 5 = 3
