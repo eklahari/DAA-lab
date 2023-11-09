@@ -67,8 +67,9 @@ output:
 Enter the number of nodes: 6
 //enter node number-1
 Enter the source node: 0
-Shortest distance from 0 to 1 = 1
-Shortest distance from 0 to 2 = 2
-Shortest distance from 0 to 3 = 5
-Shortest distance from 0 to 4 = 5
-Shortest distance from 0 to 5 = 3
+Shortest distance from source vertex 1 to destination vertex 2 = 1
+Shortest distance from source vertex 1 to destination vertex 3 = 2
+Shortest distance from source vertex 1 to destination vertex 4 = 5
+Shortest distance from source vertex 1 to destination vertex 5 = 5
+Shortest distance from source vertex 1 to destination vertex 6 = 3
+
