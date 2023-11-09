@@ -73,3 +73,13 @@ Shortest distance from source vertex 1 to destination vertex 5 = 5
 Shortest distance from source vertex 1 to destination vertex 6 = 3
 Shortest distance from source vertex 1 to destination vertex 7 = 3
 
+output2:
+Enter the number of nodes: 7
+Enter the source node: 1
+Shortest distance from source vertex 2 to destination vertex 1 = 9999
+Shortest distance from source vertex 2 to destination vertex 3 = 9999
+Shortest distance from source vertex 2 to destination vertex 4 = 4
+Shortest distance from source vertex 2 to destination vertex 5 = 9999
+Shortest distance from source vertex 2 to destination vertex 6 = 5
+Shortest distance from source vertex 2 to destination vertex 7 = 6
+
