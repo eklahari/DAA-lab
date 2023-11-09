@@ -63,8 +63,7 @@ int main() {
 }
 
 output:
-//here enter no.of nodes-1
-Enter the number of nodes: 6
+Enter the number of nodes: 7
 //enter node number-1
 Enter the source node: 0
 Shortest distance from source vertex 1 to destination vertex 2 = 1
@@ -72,4 +71,5 @@ Shortest distance from source vertex 1 to destination vertex 3 = 2
 Shortest distance from source vertex 1 to destination vertex 4 = 5
 Shortest distance from source vertex 1 to destination vertex 5 = 5
 Shortest distance from source vertex 1 to destination vertex 6 = 3
+Shortest distance from source vertex 1 to destination vertex 7 = 3
 
