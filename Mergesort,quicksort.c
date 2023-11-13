@@ -28,7 +28,7 @@ void merge(int a[],int l,int mid,int h)
     }
     while(j<=h)
     {
-        b[k]=a[k];
+        b[k]=a[j];
         k++;
         j++;
     }
