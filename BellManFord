@@ -1,0 +1,60 @@
+#include <stdio.h>
+#include <stdlib.h>
+void bellmanFord(int v, int cost[10][10], int dist[10], int n);
+
+int main() {
+    int cost[10][10], dist[10], i, j, v, n;
+    printf("Enter the number of vertices: ");
+    scanf("%d", &n);
+    printf("Enter the start vertex: ");
+    scanf("%d", &v);
+    int graph[10][10] = {
+        {0, 1, 2, 0, 0, 0, 3},
+        {0, 0, 0, 4, 0, 0, 0},
+        {0, 0, 0, 0, 3, 1, 0},
+        {0, 0, 0, 0, 0, 1, 0},
+        {0, 0, 0, 0, 0, 2, 0},
+        {0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 8, 0}};
+    for (i = 1; i <= n; i++)
+        for (j = 1; j <= n; j++) {
+            cost[i][j] = graph[i - 1][j - 1];
+            if (cost[i][j] == 0)
+                cost[i][j] = 999;
+        }
+    bellmanFord(v, cost, dist, n);
+    printf("Shortest distances from vertex %d to :\n", v);
+    for (i = 1; i <= n; i++) {
+        printf("Vertex %d: %d\n", i, dist[i]);
+    }
+    return 0;
+}
+
+void bellmanFord(int v, int cost[10][10], int dist[10], int n) {
+    int i, k, u;
+
+    for (i = 1; i <= n; i++) {
+        dist[i] = 9999; // Initialize distances to infinity
+    }
+    dist[v] = 0;
+    for (k = 1; k <= n - 1; k++) 
+    {   for (u = 1; u <= n; u++) 
+        {    for (i = 1; i <= n; i++) 
+             {   if (cost[i][u] != 0 && dist[i] + cost[i][u] < dist[u])
+                             dist[u] = dist[i] + cost[i][u];
+             }
+        }
+    }
+}
+
+output:
+Enter the number of vertices: 7
+Enter the start vertex: 1
+Shortest distances from vertex 1 to :
+Vertex 1: 0
+Vertex 2: 1
+Vertex 3: 2
+Vertex 4: 5
+Vertex 5: 5
+Vertex 6: 3
+Vertex 7: 3
