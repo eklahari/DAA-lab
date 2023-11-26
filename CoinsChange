@@ -18,6 +18,9 @@ int coinschange(int N, int M, int coins[10]) {
             }
         }
     }
+    if(dp[N]==999)
+    {  return -1;
+    }
     return dp[N];
 }
 
