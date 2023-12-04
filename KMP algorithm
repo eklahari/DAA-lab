@@ -54,3 +54,69 @@ Enter the text: tomatopomato
 Enter the pattern: topomat
 Pattern occurs with shift 4
 
+kmp alternative:
+#include <stdio.h>
+#include <string.h>
+
+void compute_prefix_function(char p[], int pi[]) {
+    int m = strlen(p);
+    int k = 0, q;
+    pi[1] = 0;
+    for (q = 2; q <= m; q++) {
+        while (k > 0 && p[k] != p[q - 1]) {
+            k = pi[k];
+        }
+        if (p[k] == p[q - 1]) {
+            k = k + 1;
+        }
+        pi[q] = k;
+    }
+}
+
+int kmp(char t[], char p[]) {
+    int n = strlen(t);
+    int m = strlen(p);
+    int pi[m + 1];
+    compute_prefix_function(p, pi);
+    int q = 0, i;
+    for (i = 0; i < n; i++) {
+        while (q > 0 && p[q] != t[i]) {
+            q = pi[q];
+        }
+        if (p[q] == t[i]) {
+            q = q + 1;
+        }
+        if (q == m) {
+            return i - m + 1;  // Return the shift value when the pattern is found
+            q = pi[q];
+        }
+    }
+    return -1;  // Return -1 if the pattern is not found
+}
+
+int main() {
+    char t[20], p[20];
+    printf("\nEnter the text: ");
+    scanf("%s", t);
+    printf("\nEnter the pattern: ");
+    scanf("%s", p);
+    
+    int shift = kmp(t, p);
+
+    if (shift != -1) {
+        printf("Pattern occurs with shift %d\n", shift);
+    } else {
+        printf("Pattern not found in the text.\n");
+    }
+
+    return 0;
+}
+output:
+Enter the text: kxjnshfi
+Enter the pattern: zxc
+Pattern not found in the text.
+
+Enter the text: sndsjdnbjs
+Enter the pattern: nds
+Pattern occurs with shift 1
+
