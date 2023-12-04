@@ -45,3 +45,12 @@ int main() {
     kmp(t, p);
     return 0;
 }
+output:
+Enter the text: abcdefgabc
+Enter the pattern: gab
+Pattern occurs with shift 6
+
+Enter the text: tomatopomato
+Enter the pattern: topomat
+Pattern occurs with shift 4
+
